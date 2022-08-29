@@ -1,9 +1,9 @@
-import { Button } from "./component/Button";
+import { Form } from "./component/Form";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Button />
+      <Form />
     </div>
   );
 }
