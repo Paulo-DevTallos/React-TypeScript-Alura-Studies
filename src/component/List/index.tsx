@@ -1,14 +1,8 @@
-import { useState } from 'react'
 import Item from './Item'
 import style from './List.module.scss'
+import { ITarefas } from '../../Types/ITarefas'
 
-const List = () => {
-
-const [tarefa, setTarefa] = useState([{
-  id: 0,
-  tarefa: "tarefa padrao",
-  tempo: "01:02:03"
-}])
+const List = ({ tarefas }: { tarefas: ITarefas[] }) => {
 
   return(
     <aside className={style.listaTarefas}> 

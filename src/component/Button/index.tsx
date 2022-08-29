@@ -2,10 +2,16 @@ import React from 'react';
 
 import style from './Button.module.scss'
 
-export class Button extends React.Component<{ name: string }> {
-  render(): React.ReactNode {
+export class Button extends React.Component<
+    { 
+      name: string, 
+      type?: "button" | "submit" | "reset" | undefined 
+    }
+  > {
+  render(): React.ReactNode { 
+    const  { type = "button" } = this.props // se o tipo do botao nao for especifdicado ele atribui o tipo padrao: button
     return (
-      <button className={style.botao}>
+      <button className={style.botao} type={type}>
         { this.props.name }
       </button>
     )
