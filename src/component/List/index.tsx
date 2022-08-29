@@ -1,4 +1,4 @@
-import './style.scss'
+import style from './List.module.scss'
 
 const List = () => {
   const listRender = [
@@ -15,12 +15,12 @@ const List = () => {
   ]
   
   return(
-    <aside className="listaTarefas"> 
+    <aside className={style.listaTarefas}> 
       <h2>Estudos do dia</h2>
       <ul>
         {
           listRender.map((item, id) => (
-            <li key={id} className="item"> 
+            <li key={id} className={style.item}> 
               <h3>{item.tarefa}</h3>
               <span>{item.tempo}</span>
             </li>
