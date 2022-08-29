@@ -1,7 +1,9 @@
+import { Button } from "./component/Button";
+
 function App() {
   return (
     <div className="App">
-      Hello React TS
+      <Button />
     </div>
   );
 }
