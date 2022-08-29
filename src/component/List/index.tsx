@@ -1,3 +1,4 @@
+import Item from './Item'
 import style from './List.module.scss'
 
 const List = () => {
@@ -11,6 +12,11 @@ const List = () => {
       id: 1,
       tarefa: "React typeScript",
       tempo: "01:15:20"
+    },
+    {
+      id: 1,
+      tarefa: "Todo List",
+      tempo: "01:05:20"
     }
   ]
   
@@ -20,10 +26,11 @@ const List = () => {
       <ul>
         {
           listRender.map((item, id) => (
-            <li key={id} className={style.item}> 
-              <h3>{item.tarefa}</h3>
-              <span>{item.tempo}</span>
-            </li>
+            <Item 
+              key={id}
+              /* conseguimos utilizar tudo oq está no objeto item porém é necessário ter atenção*/
+              { ...item } 
+            />
           ))
         }
       </ul>
