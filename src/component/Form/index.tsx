@@ -33,7 +33,9 @@ export class Form extends React.Component {
             required          
           />
         </div>
-        <Button />
+        <Button
+          name='Adicionar'
+        />
       </form>       
     )
   }
