@@ -4,18 +4,16 @@ import List from "./component/List";
 
 import style from './App.module.scss'
 import Chronometer from "./component/Chonometer";
+import { ITarefas } from "./Types/ITarefas";
 
 const App = () => {
+//App gerencia os componentes
 
-  const [tarefas, setTarefa] = useState([{
-    id: 0,
-    tarefa: "tarefa padrao",
-    tempo: "01:02:03"
-  }])
+  const [tarefas, setTarefas] = useState<ITarefas[] | []>([])
 
   return (
     <div className={style.AppStyle}>
-      <Form setTarefas={setTarefa}/>
+      <Form setTarefas={setTarefas}/>
       <List tarefas={tarefas}/>
       <Chronometer />
     </div>

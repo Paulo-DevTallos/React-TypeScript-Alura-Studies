@@ -4,7 +4,9 @@ import { Button } from '../Button';
 
 import style from './Form.module.scss'
 
-export class Form extends React.Component<{ setTarefas: ITarefas[] }> {
+export class Form extends React.Component<{
+  setTarefas: React.Dispatch<React.SetStateAction<ITarefas[]>> 
+}> {
   state = {
     tarefa: '',
     tempo: '00:00',
@@ -13,11 +15,10 @@ export class Form extends React.Component<{ setTarefas: ITarefas[] }> {
   // nesse caso nao é possivel acessar o que está fora do escopo da funcao, por isso utilizamos o bind(this) em sua chamada
   handleAddTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    this.props.setTarefas(tarefasAnt => [...tarefasAnt, {this.state}])
-      //    this.props.setTarefas(tarefas => console.log(tarefas))
+    this.props.setTarefas(oldTasks => [...oldTasks, {...this.state}])
   }
 
-  render(): React.ReactNode {
+  render() {
     return (
       <form className={style.novaTarefa} onSubmit={this.handleAddTask.bind(this)}>
         <div className={style.inputContainer}>
@@ -28,7 +29,8 @@ export class Form extends React.Component<{ setTarefas: ITarefas[] }> {
             type="text" 
             name="tarefa"
             id="tarefa"
-            onChange={(e) => e.target.value}
+            value={this.state.tarefa}
+            onChange={(e) => this.setState({ ...this.state, tarefa: e.target.value })}
             placeholder="O que você quer estudar"
             required
           />
